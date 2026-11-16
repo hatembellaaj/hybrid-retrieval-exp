@@ -1,0 +1,60 @@
+{"_id": "A01", "text": "What clinical and laboratory criteria are used to classify hemophilia severity?", "task": "A", "disease": "hemophilia"}
+{"_id": "A02", "text": "What bleeding pattern is typical of severe hemophilia?", "task": "A", "disease": "hemophilia"}
+{"_id": "A03", "text": "How does bleeding typically present in moderate hemophilia?", "task": "A", "disease": "hemophilia"}
+{"_id": "A04", "text": "When do patients with mild hemophilia usually bleed?", "task": "A", "disease": "hemophilia"}
+{"_id": "A05", "text": "What titer distinguishes a low-responding from a high-responding inhibitor?", "task": "A", "disease": "hemophilia"}
+{"_id": "A06", "text": "How is a target joint defined?", "task": "A", "disease": "hemophilia"}
+{"_id": "A07", "text": "What is the difference between primary, secondary and tertiary prophylaxis?", "task": "A", "disease": "hemophilia"}
+{"_id": "A08", "text": "What is the emicizumab prophylaxis dosing schedule?", "task": "A", "disease": "hemophilia_A"}
+{"_id": "A09", "text": "How often should patients with newly diagnosed hemophilia A be screened for inhibitors?", "task": "A", "disease": "hemophilia_A"}
+{"_id": "A10", "text": "Should inhibitor screening be done after intensive factor exposure, for example more than five consecutive days of treatment?", "task": "A", "disease": "hemophilia_A"}
+{"_id": "A11", "text": "Is inhibitor screening recommended before surgery in hemophilia A?", "task": "A", "disease": "hemophilia_A"}
+{"_id": "A12", "text": "Which laboratory assay is preferred to quantify a FVIII inhibitor titer?", "task": "A", "disease": "hemophilia"}
+{"_id": "A13", "text": "Which screening tests can be used in a patient suspected of having a bleeding disorder?", "task": "A", "disease": "hemophilia"}
+{"_id": "A14", "text": "How frequently should people with hemophilia have comprehensive care assessments?", "task": "A", "disease": "hemophilia"}
+{"_id": "A15", "text": "What precaution is recommended during circumcision in a patient with hemophilia?", "task": "A", "disease": "hemophilia"}
+{"_id": "A16", "text": "Can NSAIDs be used for pain in hemophilia?", "task": "A", "disease": "hemophilia"}
+{"_id": "A17", "text": "Is the intramuscular route acceptable for analgesics in hemophilia?", "task": "A", "disease": "hemophilia"}
+{"_id": "A18", "text": "What is the objective of prophylaxis in severe hemophilia?", "task": "A", "disease": "hemophilia"}
+{"_id": "A19", "text": "Which patients does the WFH strongly recommend be on prophylaxis?", "task": "A", "disease": "hemophilia"}
+{"_id": "A20", "text": "When should prophylaxis be started in children with severe hemophilia?", "task": "A", "disease": "hemophilia"}
+{"_id": "A21", "text": "In which tubes should blood samples for PT, APTT or factor activity be collected?", "task": "A", "disease": "hemophilia"}
+{"_id": "A22", "text": "Are low-responding inhibitors usually persistent?", "task": "A", "disease": "hemophilia"}
+{"_id": "A23", "text": "Below which VWF level is type 1 von Willebrand disease diagnosed regardless of bleeding symptoms?", "task": "A", "disease": "von_willebrand_disease"}
+{"_id": "A24", "text": "How should patients with VWF levels between 30 and 50 IU/dL be classified?", "task": "A", "disease": "von_willebrand_disease"}
+{"_id": "A25", "text": "What test do current guidelines suggest to confirm increased VWF clearance (type 1C VWD)?", "task": "A", "disease": "von_willebrand_disease"}
+{"_id": "A26", "text": "What is the estimated prevalence of von Willebrand disease?", "task": "A", "disease": "von_willebrand_disease"}
+{"_id": "A27", "text": "Which first-level test cut-off is usually used to exclude von Willebrand disease?", "task": "A", "disease": "von_willebrand_disease"}
+{"_id": "A28", "text": "Which antifibrinolytic is used for heavy menstrual bleeding in women with VWD and how is it taken?", "task": "A", "disease": "von_willebrand_disease"}
+{"_id": "A29", "text": "How many recommendations did the 2021 VWD management guideline issue?", "task": "A", "disease": "von_willebrand_disease"}
+{"_id": "A30", "text": "How is von Willebrand disease classified?", "task": "A", "disease": "von_willebrand_disease"}
+{"_id": "A31", "text": "What trough FIX level has traditionally been targeted with prophylaxis in hemophilia B?", "task": "A", "disease": "hemophilia_B"}
+{"_id": "A32", "text": "What defines a severe bleeding phenotype in non-severe hemophilia according to the Delphi consensus?", "task": "A", "disease": "hemophilia"}
+{"_id": "A33", "text": "How many people with hemophilia did Tunisia report to the WFH Annual Global Survey 2023?", "task": "A", "disease": "hemophilia"}
+{"_id": "A34", "text": "How many Tunisian patients with active inhibitors were reported to the WFH Annual Global Survey 2023?", "task": "A", "disease": "hemophilia"}
+{"_id": "A35", "text": "In the Tunisian F8 haplotype study, how many patients were included and where were they treated?", "task": "A", "disease": "hemophilia_A"}
+{"_id": "A36", "text": "Which bodies are involved in managed entry agreements for medicines in Tunisia?", "task": "A", "disease": "none"}
+{"_id": "B01", "text": "Extract the hemophilia severity classes with their factor-level thresholds (IU/dL and % of normal) and typical bleeding patterns.", "task": "B", "disease": "hemophilia"}
+{"_id": "B02", "text": "Extract the high-, intermediate- and low-dose prophylaxis regimens for hemophilia A (dose per kg, frequency, yearly dose).", "task": "B", "disease": "hemophilia_A"}
+{"_id": "B03", "text": "Extract the high-, intermediate- and low-dose prophylaxis regimens for hemophilia B.", "task": "B", "disease": "hemophilia_B"}
+{"_id": "B04", "text": "Extract the diagnostic criteria and numerical thresholds for von Willebrand disease from the available guidelines and reviews.", "task": "B", "disease": "von_willebrand_disease"}
+{"_id": "B05", "text": "Extract the ISTH-BAT abnormal bleeding score cut-offs by population and report any discrepancy between sources.", "task": "B", "disease": "von_willebrand_disease"}
+{"_id": "B06", "text": "Extract inhibitor definitions and the inhibitor screening schedule (titer thresholds, timing, triggers).", "task": "B", "disease": "hemophilia"}
+{"_id": "B07", "text": "Extract the emicizumab prophylaxis regimen (route, induction dose and duration, maintenance dose).", "task": "B", "disease": "hemophilia_A"}
+{"_id": "B08", "text": "Extract the definitions of primary, secondary and tertiary prophylaxis including timing criteria.", "task": "B", "disease": "hemophilia"}
+{"_id": "B09", "text": "Extract the numbers of people with hemophilia A, hemophilia B and von Willebrand disease reported by Tunisia in the WFH Annual Global Survey 2023.", "task": "B", "disease": "hemophilia"}
+{"_id": "B10", "text": "Extract the factor VIII and factor IX quantities used in Tunisia in 2023 (total IU, plasma-derived vs recombinant).", "task": "B", "disease": "hemophilia"}
+{"_id": "B11", "text": "Extract the reported prevalence estimates for VWD overall and for type 3 VWD.", "task": "B", "disease": "von_willebrand_disease"}
+{"_id": "B12", "text": "Extract the defining laboratory features of type 3 VWD.", "task": "B", "disease": "von_willebrand_disease"}
+{"_id": "B13", "text": "Extract the criteria defining a target joint (number of bleeds and time window).", "task": "B", "disease": "hemophilia"}
+{"_id": "B14", "text": "Extract the WFH recommendations on inhibitor screening for hemophilia B patients.", "task": "B", "disease": "hemophilia"}
+{"_id": "C01", "text": "Draft an evidence-grounded section on the diagnosis and severity classification of hemophilia, considering the descriptive information available from the Tunisian registry.", "task": "C", "disease": "hemophilia"}
+{"_id": "C02", "text": "Draft a protocol section on prophylaxis for hemophilia A adapted to Tunisia, using the registry's recorded treatment patterns and documented national factor supply.", "task": "C", "disease": "hemophilia_A"}
+{"_id": "C03", "text": "Draft a section on inhibitor monitoring and management for the Tunisian hemophilia program.", "task": "C", "disease": "hemophilia"}
+{"_id": "C04", "text": "Draft a protocol section on the management of hemophilia B in Tunisia.", "task": "C", "disease": "hemophilia_B"}
+{"_id": "C05", "text": "Draft a section on musculoskeletal monitoring (joint bleeds, target joints, arthropathy) for Tunisian patients with hemophilia.", "task": "C", "disease": "hemophilia"}
+{"_id": "C06", "text": "Draft a section on the diagnosis of von Willebrand disease for Tunisia, considering the Tunisian registry.", "task": "C", "disease": "von_willebrand_disease"}
+{"_id": "C07", "text": "Draft a follow-up and comprehensive-care section for the Tunisian hemophilia protocol.", "task": "C", "disease": "hemophilia"}
+{"_id": "C08", "text": "Draft a section on emicizumab prophylaxis for patients with hemophilia A in Tunisia.", "task": "C", "disease": "hemophilia_A"}
+{"_id": "C09", "text": "Draft a section on perioperative and procedural care (circumcision, dental extraction, surgery) for Tunisian patients with hemophilia.", "task": "C", "disease": "hemophilia"}
+{"_id": "C10", "text": "Draft a section on pain management for patients with hemophilia in Tunisia.", "task": "C", "disease": "hemophilia"}

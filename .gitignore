@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+models/
+results/
+logs/
+state/
+run.log
+*.tar.gz
+.cache/
+data/scifact/
+data/nfcorpus/
+data/trec-covid/
+data/fiqa/
+.DS_Store
