@@ -55,6 +55,10 @@ if want preflight; then
   } | tee results/preflight.txt
   fail=0
   [ -n "${PYTHON:-}" ] || { echo "ERREUR : python3.12 ou python3.11 introuvable (définir PYTHON=...)"; fail=1; }
+  if [ -n "${PYTHON:-}" ] && ! "$PYTHON" -c "import ensurepip, venv" >/dev/null 2>&1; then
+    v=$("$PYTHON" -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
+    echo "ERREUR : module venv indisponible (sudo apt install python${v}-venv)"; fail=1
+  fi
   for c in curl unzip tar; do command -v "$c" >/dev/null || { echo "ERREUR : $c absent (sudo apt install $c)"; fail=1; }; done
   docker version >/dev/null 2>&1 || { echo "ERREUR : Docker inaccessible (sudo, ou ajouter l'utilisateur au groupe docker)"; fail=1; }
   if grep -q "port ${PG_PORT}: BUSY" results/preflight.txt && ! docker ps --format '{{.Names}}' 2>/dev/null | grep -qx hybrid-exp-pg; then
@@ -77,7 +81,7 @@ fi
 # ------------------------------------------------------------------ venv
 if want venv && ! is_done venv; then
   log "Python environment ($PYTHON)"
-  [ -d .venv ] || "$PYTHON" -m venv .venv
+  [ -x .venv/bin/pip ] || { rm -rf .venv; "$PYTHON" -m venv .venv; }
   .venv/bin/pip install -q --no-cache-dir -r requirements.txt 2>&1 | tail -3
   "$PY" -c "import fastembed, sklearn, psycopg, rank_bm25, snowballstemmer, numpy; print('imports OK')"
   done_mark venv
