@@ -6,19 +6,27 @@
 #   ./run_all.sh                 # everything
 #   ./run_all.sh preflight       # checks only
 #   STEPS="bm25 fts" ./run_all.sh
-# Options (environment): PYTHON, PG_PORT (18508), THREADS (all cores), LLM_MODEL (qwen2.5:7b),
-#   OLLAMA_HOST_URL (http://127.0.0.1:11434), WITH_FIQA_LLM=1 to also run the LLM controllers on FiQA (648 queries).
+# Options (environment): PYTHON, PG_PORT (18508), THREADS (min(cores, 8)), LLM_MODEL (qwen2.5:7b),
+#   OLLAMA_PORT (18509), OLLAMA_CPUS (8), OLLAMA_IMAGE (ollama/ollama:0.6.8),
+#   OLLAMA_HOST_URL (default: the dedicated container hybrid-exp-ollama started by step "ollama"; set it to use an
+#   existing Ollama instead), WITH_FIQA_LLM=1 to also run the LLM controllers on FiQA (648 queries).
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 cd "$HERE"
 mkdir -p state logs results data models
 PG_PORT="${PG_PORT:-18508}"
-THREADS="${THREADS:-$(nproc 2>/dev/null || echo 4)}"
+NCPU="$(nproc 2>/dev/null || echo 4)"
+THREADS="${THREADS:-$(( NCPU < 8 ? NCPU : 8 ))}"
 LLM_MODEL="${LLM_MODEL:-qwen2.5:7b}"
-OLLAMA_HOST_URL="${OLLAMA_HOST_URL:-http://127.0.0.1:11434}"
+OLLAMA_PORT="${OLLAMA_PORT:-18509}"
+OLLAMA_CPUS="${OLLAMA_CPUS:-8}"
+OLLAMA_IMAGE="${OLLAMA_IMAGE:-ollama/ollama:0.6.8}"
+OWN_OLLAMA=0
+[ -z "${OLLAMA_HOST_URL:-}" ] && OWN_OLLAMA=1
+OLLAMA_HOST_URL="${OLLAMA_HOST_URL:-http://127.0.0.1:${OLLAMA_PORT}}"
 DSN="postgresql://postgres:postgres@127.0.0.1:${PG_PORT}/fts"
 export THREADS LLM_MODEL OLLAMA_HOST_URL FASTEMBED_CACHE="$HERE/models" HF_HUB_DISABLE_TELEMETRY=1 PYTHONPATH="$HERE/code"
-STEPS="${STEPS:-${1:-preflight venv data postgres bm25 fts llm package}}"
+STEPS="${STEPS:-${1:-preflight venv data postgres bm25 fts ollama llm package}}"
 [ "${1:-}" = "preflight" ] && STEPS="preflight"
 
 if [ -z "${PYTHON:-}" ]; then
@@ -39,6 +47,8 @@ if want preflight; then
     echo "python: ${PYTHON:-NONE} $(${PYTHON:-false} --version 2>&1 || true)"
     echo "docker: $(docker version --format '{{.Server.Version}}' 2>&1 || true)"
     echo "port ${PG_PORT}: $( (ss -ltn 2>/dev/null || netstat -ltn 2>/dev/null) | grep -q ":${PG_PORT} " && echo BUSY || echo free)"
+    echo "port ${OLLAMA_PORT}: $( (ss -ltn 2>/dev/null || netstat -ltn 2>/dev/null) | grep -q ":${OLLAMA_PORT} " && echo BUSY || echo free)"
+    echo "ollama mode: $([ "$OWN_OLLAMA" = 1 ] && echo "dedicated container hybrid-exp-ollama (${OLLAMA_IMAGE}, ${OLLAMA_CPUS} CPUs, port ${OLLAMA_PORT})" || echo "existing instance ${OLLAMA_HOST_URL}")"
     echo "ollama: $(curl -s --max-time 5 "$OLLAMA_HOST_URL/api/tags" | tr -d '\n' | head -c 600 || echo UNREACHABLE)"
     echo "huggingface: $(curl -s -o /dev/null -w '%{http_code}' --max-time 10 https://huggingface.co || echo FAIL)"
     echo "beir: $(curl -s -o /dev/null -w '%{http_code}' --max-time 10 https://public.ukp.informatik.tu-darmstadt.de/thakur/BEIR/datasets/ || echo FAIL)"
@@ -52,8 +62,13 @@ if want preflight; then
   fi
   avail=$(df -Pk "$HERE" | awk 'NR==2{print int($4/1048576)}')
   [ "$avail" -ge 15 ] || { echo "ERREUR : ${avail} Go libres, 15 Go nécessaires"; fail=1; }
-  if ! grep -q "\"name\":\"${LLM_MODEL}\"" results/preflight.txt; then
-    echo "ATTENTION : modèle ${LLM_MODEL} absent d'Ollama ($OLLAMA_HOST_URL) -> étape llm impossible (ollama pull ${LLM_MODEL}, ou STEPS sans llm)"
+  if [ "$OWN_OLLAMA" = 1 ]; then
+    if grep -q "port ${OLLAMA_PORT}: BUSY" results/preflight.txt && ! docker ps --format '{{.Names}}' 2>/dev/null | grep -qx hybrid-exp-ollama; then
+      echo "ERREUR : port ${OLLAMA_PORT} occupé (définir OLLAMA_PORT=...)"; fail=1
+    fi
+    echo "Ollama : un conteneur dédié sera lancé à l'étape ollama (modèle ${LLM_MODEL} téléchargé, ~5 Go)"
+  elif ! grep -q "\"name\":\"${LLM_MODEL}\"" results/preflight.txt; then
+    echo "ATTENTION : modèle ${LLM_MODEL} absent de ${OLLAMA_HOST_URL} -> étape llm impossible"
   fi
   [ "$fail" = 0 ] || exit 1
   echo "preflight OK"
@@ -119,6 +134,24 @@ if want fts; then
       | tee "logs/fts-$d.log" | tail -2
     done_mark "fts-$d"
   done
+fi
+
+# ------------------------------------------------------------------ dedicated Ollama
+if want ollama && [ "$OWN_OLLAMA" = 1 ]; then
+  log "Ollama dédié (hybrid-exp-ollama, ${OLLAMA_IMAGE}, ${OLLAMA_CPUS} CPUs, 127.0.0.1:${OLLAMA_PORT})"
+  if ! docker ps -a --format '{{.Names}}' | grep -qx hybrid-exp-ollama; then
+    docker pull "$OLLAMA_IMAGE" >/dev/null || { echo "image ${OLLAMA_IMAGE} introuvable, essai ollama/ollama:latest"; OLLAMA_IMAGE=ollama/ollama:latest; docker pull "$OLLAMA_IMAGE" >/dev/null; }
+    docker run -d --name hybrid-exp-ollama --cpus "$OLLAMA_CPUS" -p "127.0.0.1:${OLLAMA_PORT}:11434" \
+      -v hybrid-exp-ollama:/root/.ollama "$OLLAMA_IMAGE" >/dev/null
+  else
+    docker start hybrid-exp-ollama >/dev/null
+  fi
+  until curl -s --max-time 3 "$OLLAMA_HOST_URL/api/tags" >/dev/null; do sleep 2; done
+  docker exec hybrid-exp-ollama ollama pull "$LLM_MODEL" 2>&1 | tail -1
+  { echo "image: $(docker inspect -f '{{.Config.Image}} {{.Image}}' hybrid-exp-ollama)"
+    echo "version: $(curl -s "$OLLAMA_HOST_URL/api/version")"
+    echo "model: $(docker exec hybrid-exp-ollama ollama list | grep "${LLM_MODEL%%:*}")"; } | tee results/ollama.txt
+  done_mark ollama
 fi
 
 # ------------------------------------------------------------------ LLM controllers B1/B2

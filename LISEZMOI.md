@@ -11,7 +11,8 @@ dont la diffusion n'est pas encore décidée. Ne pas le rendre public tel quel.
 | `postgres` | lance un PostgreSQL 16 **séparé** (conteneur `hybrid-exp-pg`, port 127.0.0.1:18508) | 1 min |
 | `bm25` | recherche BM25 + dense : 100 questions cliniques, TREC-COVID (171 000 documents), FiQA | 4–8 h |
 | `fts` | recherche plein texte PostgreSQL (`ts_rank_cd`, étape ET puis OU) + règle A0, sur les 6 corpus | 1–2 h |
-| `llm` | contrôleurs LLM B1/B2 avec Ollama (`qwen2.5:7b`), environ 830 questions × 4 appels | 5–18 h |
+| `ollama` | lance un Ollama **dédié** (conteneur `hybrid-exp-ollama`, 8 CPU max, port 127.0.0.1:18509) et télécharge `qwen2.5:7b` (~5 Go) | 5–10 min |
+| `llm` | contrôleurs LLM B1/B2, environ 830 questions × 4 appels | 5–18 h |
 | `package` | crée `hybrid_results_<date>.tar.gz` à renvoyer | < 1 min |
 
 Aucune donnée patient. Le registre en service n'est pas touché (conteneur et port à part, port lié à 127.0.0.1).
@@ -19,8 +20,10 @@ Aucune donnée patient. Le registre en service n'est pas touché (conteneur et p
 ## Prérequis
 - Python 3.12 ou 3.11, Docker, `git`, `curl`, `unzip` ; 15 Go libres ; accès Internet (corpus BEIR, modèle
   d'embeddings, image Docker `postgres:16`).
-- Pour l'étape `llm` : Ollama avec `qwen2.5:7b` (`ollama pull qwen2.5:7b`). Sinon :
-  `STEPS="preflight venv data postgres bm25 fts package" ./run_all.sh`.
+- Rien à installer pour le LLM : le script lance son propre Ollama dans un conteneur, limité à 8 processeurs pour ne
+  pas pénaliser les autres services, et le supprime au nettoyage. Pour utiliser un Ollama existant à la place :
+  `sudo OLLAMA_HOST_URL=http://adresse:port ./run_all.sh`. Les calculs d'embeddings sont eux aussi limités à 8
+  processeurs (`THREADS`).
 
 ## Marche à suivre
 Récupérer le dépôt (identifiants GitHub demandés, le dépôt étant privé) :
@@ -45,7 +48,7 @@ lancer `sudo -E ./run_all.sh ...`. Pour une mise à jour du code : `git pull`, p
 
 ## Nettoyage
 ```bash
-docker rm -f hybrid-exp-pg
+sudo docker rm -f hybrid-exp-pg hybrid-exp-ollama && sudo docker volume rm hybrid-exp-ollama
 ```
 ```bash
 rm -rf ~/IA/hybrid-exp
