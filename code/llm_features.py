@@ -10,11 +10,14 @@ Every call is cached in <out>/llm_cache.jsonl (the run resumes after an interrup
 Outputs: <out>/llm_features.csv, <out>/manifest.json.
 
     python llm_features.py --data data/scifact --out results/scifact-llm --model qwen2.5:7b
+With --rankings <rankings.jsonl.gz> (written by utility_matrix_beir.py), the top-3 dense and BM25 lists are read from
+that file (actions dense_only and lex_only) instead of being recomputed: same lists, no embeddings needed.
 """
 from __future__ import annotations
 
 import argparse
 import csv
+import gzip
 import hashlib
 import json
 import math
@@ -78,16 +81,26 @@ def main() -> None:
     ap.add_argument("--host", default=os.environ.get("OLLAMA_HOST_URL", "http://127.0.0.1:11434"))
     ap.add_argument("--threads", type=int, default=int(os.environ.get("THREADS", "4")))
     ap.add_argument("--limit", type=int, default=0, help="first N queries only (smoke test)")
+    ap.add_argument("--rankings", help="rankings.jsonl.gz of utility_matrix_beir.py (BM25 run) to reuse")
     a = ap.parse_args()
     data, out = Path(a.data), Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     corpus, queries = load_queries_only(data)
     qids = sorted(queries)[: a.limit or None]
     ids = list(corpus)
-    texts = [corpus[i] for i in ids]
-    D = embed(texts, False, data / ".cache", a.threads)
-    Q = embed([queries[q] for q in qids], True, data / ".cache", a.threads)
-    bm25 = BM25Index(ids, texts)
+    tops = {}
+    if a.rankings:
+        with gzip.open(a.rankings, "rt", encoding="utf-8") as fh:
+            for line in fh:
+                r = json.loads(line)
+                if r["action"] in ("dense_only", "lex_only"):
+                    tops.setdefault(r["qid"], {})[r["action"]] = r["top"]
+        qids = [q for q in qids if q in tops]
+    else:
+        texts = [corpus[i] for i in ids]
+        D = embed(texts, False, data / ".cache", a.threads)
+        Q = embed([queries[q] for q in qids], True, data / ".cache", a.threads)
+        bm25 = BM25Index(ids, texts)
     llm = Ollama(a.host, a.model, out / "llm_cache.jsonl")
     rows, t0 = [], time.time()
     for qi, qid in enumerate(qids):
@@ -101,9 +114,12 @@ def main() -> None:
         except json.JSONDecodeError:
             b1 = {}
         # ---- B2
-        d_rank = [ids[i] for i in np.argsort(-(D @ Q[qi]), kind="stable")[: P.B2_TOP_M]]
-        ls = bm25.scores(q)
-        l_rank = [ids[i] for i in np.argsort(-ls, kind="stable")[: P.B2_TOP_M] if ls[i] > 0]
+        if a.rankings:
+            d_rank, l_rank = tops[qid]["dense_only"][: P.B2_TOP_M], tops[qid]["lex_only"][: P.B2_TOP_M]
+        else:
+            d_rank = [ids[i] for i in np.argsort(-(D @ Q[qi]), kind="stable")[: P.B2_TOP_M]]
+            ls = bm25.scores(q)
+            l_rank = [ids[i] for i in np.argsort(-ls, kind="stable")[: P.B2_TOP_M] if ls[i] > 0]
         pool = list(dict.fromkeys(d_rank + l_rank))
         random.Random(f"{P.PROMPT_VERSION}|{qid}").shuffle(pool)
         number = {doc: n + 1 for n, doc in enumerate(pool)}
@@ -143,7 +159,7 @@ def main() -> None:
         w.writeheader()
         w.writerows(rows)
     import prompts as _p
-    manifest = {"data": str(data), "model": a.model, "prompt_version": P.PROMPT_VERSION,
+    manifest = {"data": str(data), "model": a.model, "rankings": a.rankings, "ollama_host": a.host, "prompt_version": P.PROMPT_VERSION,
                 "prompts_sha256": hashlib.sha256(Path(_p.__file__).read_bytes()).hexdigest(), "queries": len(rows),
                 "b2_samples": P.B2_SAMPLES, "b2_top_m": P.B2_TOP_M, "invalid_b2_samples": sum(P.B2_SAMPLES - r["b2_valid_samples"] for r in rows),
                 "total_calls": sum(r["calls"] for r in rows), "total_llm_seconds": round(sum(r["llm_seconds"] for r in rows), 1),
