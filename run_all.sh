@@ -162,13 +162,15 @@ fi
 if want llm; then
   curl -s --max-time 5 "$OLLAMA_HOST_URL/api/tags" | grep -q "\"name\":\"${LLM_MODEL}\"" \
     || { echo "ERREUR : modèle ${LLM_MODEL} indisponible sur ${OLLAMA_HOST_URL}"; exit 1; }
-  if ! is_done llm-smoke; then
+  if ! is_done llm-smoke && [ -z "${LLM_SETS:-}" ]; then
     log "LLM smoke test (3 queries)"
     "$PY" code/llm_features.py --data data/hemophilia-dev --out results/llm-smoke --limit 3 2>&1 | tail -1
     done_mark llm-smoke
   fi
-  LLM_SETS="hemophilia-dev hemophilia-clin scifact nfcorpus trec-covid"
-  [ "${WITH_FIQA_LLM:-0}" = 1 ] && LLM_SETS="$LLM_SETS fiqa"
+  if [ -z "${LLM_SETS:-}" ]; then
+    LLM_SETS="hemophilia-dev hemophilia-clin scifact nfcorpus trec-covid"
+    [ "${WITH_FIQA_LLM:-0}" = 1 ] && LLM_SETS="$LLM_SETS fiqa"
+  fi
   for d in $LLM_SETS; do
     is_done "llm-$d" && continue
     log "LLM controllers B1/B2 ($LLM_MODEL): $d"
