@@ -24,6 +24,7 @@ import math
 import os
 import random
 import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -54,8 +55,18 @@ class Ollama:
                 "options": {"temperature": temperature, "seed": seed, "num_ctx": 4096}}
         t0 = time.time()
         req = urllib.request.Request(self.host + "/api/chat", data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
-        with urllib.request.urlopen(req, timeout=900) as resp:
-            r = json.loads(resp.read())
+        for attempt in range(1, 4):
+            try:
+                with urllib.request.urlopen(req, timeout=900) as resp:
+                    r = json.loads(resp.read())
+                break
+            except urllib.error.HTTPError as e:          # server-side failure: logged, retried, then counted invalid
+                msg = e.read().decode(errors="replace")[:300]
+                print(f"  ollama HTTP {e.code} (attempt {attempt}/3): {msg}", flush=True)
+                time.sleep(10 * attempt)
+        else:
+            return {"key": key, "content": "", "prompt_tokens": 0, "completion_tokens": 0,
+                    "seconds": round(time.time() - t0, 3), "error": msg}   # not cached: retried on the next run
         rec = {"key": key, "content": r["message"]["content"], "prompt_tokens": r.get("prompt_eval_count", 0),
                "completion_tokens": r.get("eval_count", 0), "seconds": round(time.time() - t0, 3)}
         self.cache[key] = rec
