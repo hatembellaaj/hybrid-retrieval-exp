@@ -1,0 +1,412 @@
+mode: RUN  started 2026-11-21T22:24:37.478747+00:00
+TEST_PLAN.md sha256 d52af94d0471dc5ed720d6a564cd22c417d5c4db435790b92caecd1b06bdf350
+locked_test.py sha256 33d09db882a8301e6bad649bd49b6a774a36f0a17c187dddcaae74db3d50f0ac
+scifact|bm25|rrf: fit 150 cal 75 test 75 a* rrf_w0.75
+scifact|bm25|cvx: fit 150 cal 75 test 75 a* cvx_a0.7
+scifact|fts|rrf: fit 150 cal 75 test 75 a* rrf_w0.0
+nfcorpus|bm25|rrf: fit 162 cal 81 test 80 a* rrf_w0.75
+nfcorpus|bm25|cvx: fit 162 cal 81 test 80 a* cvx_a0.5
+nfcorpus|fts|rrf: fit 162 cal 81 test 80 a* rrf_w0.25
+trec-covid|bm25|rrf: fit 25 cal 13 test 12 a* rrf_w0.25
+trec-covid|bm25|cvx: fit 25 cal 13 test 12 a* cvx_a0.8
+trec-covid|fts|rrf: fit 25 cal 13 test 12 a* rrf_w0.5
+fiqa|bm25|rrf: fit 324 cal 162 test 162 a* rrf_w0.0
+fiqa|bm25|cvx: fit 324 cal 162 test 162 a* cvx_a0.8
+fiqa|fts|rrf: fit 324 cal 162 test 162 a* rrf_w0.0
+hemophilia-clin|bm25|rrf|a_raw: 100/100 questions with a relevant passage, a*_dev rrf_w0.5, a*_insample rrf_w0.25
+hemophilia-clin|bm25|rrf|b_mapped: 100/100 questions with a relevant passage, a*_dev rrf_w0.5, a*_insample rrf_w0.25
+hemophilia-clin|bm25|rrf|c_grade3: 81/100 questions with a relevant passage, a*_dev rrf_w0.5, a*_insample rrf_w0.25
+hemophilia-clin|bm25|cvx|a_raw: 100/100 questions with a relevant passage, a*_dev cvx_a0.8, a*_insample cvx_a0.8
+hemophilia-clin|bm25|cvx|b_mapped: 100/100 questions with a relevant passage, a*_dev cvx_a0.8, a*_insample cvx_a0.9
+hemophilia-clin|bm25|cvx|c_grade3: 81/100 questions with a relevant passage, a*_dev cvx_a0.8, a*_insample cvx_a0.8
+hemophilia-clin|fts|rrf|a_raw: 100/100 questions with a relevant passage, a*_dev rrf_w0.5, a*_insample rrf_w0.0
+hemophilia-clin|fts|rrf|b_mapped: 100/100 questions with a relevant passage, a*_dev rrf_w0.5, a*_insample rrf_w0.0
+hemophilia-clin|fts|rrf|c_grade3: 81/100 questions with a relevant passage, a*_dev rrf_w0.5, a*_insample rrf_w0.0
+
+=== scifact|bm25|rrf | test 75 | a* rrf_w0.75
+  FIXED           0.7667 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7886 +0.0219 [+0.007,+0.040] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.7667 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.7581 -0.0086 [-0.028,+0.009] loss   6.7% meanLoss 0.0151 (ub 0.0295) p=0.457 holm=1.000
+  A3              0.7557 -0.0109 [-0.038,+0.014] loss  10.7% meanLoss 0.0253 (ub 0.0433) p=0.367 holm=1.000
+  C(eps=0.02)     0.7600 -0.0067 [-0.028,+0.013] loss   5.3% meanLoss 0.0153 (ub 0.0296) p=0.434 holm=1.000
+  C(eps=0.05)     0.7557 -0.0109 [-0.038,+0.014] loss  10.7% meanLoss 0.0253 (ub 0.0433) p=0.367 holm=1.000
+  A3+L            0.7626 -0.0041 [-0.028,+0.018] loss  10.7% meanLoss 0.0180 (ub 0.0330) p=0.701 holm=1.000
+  C+L(eps=0.02)   0.7753 +0.0086 [+0.000,+0.022] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=0.505 holm=1.000
+  C+L(eps=0.05)   0.7626 -0.0041 [-0.028,+0.018] loss  10.7% meanLoss 0.0180 (ub 0.0330) p=0.701 holm=1.000
+  B1              0.7628 -0.0039 [-0.021,+0.012] loss   6.7% meanLoss 0.0106 (ub 0.0224) p=0.755 holm=1.000
+  B2              0.7725 +0.0058 [-0.001,+0.018] loss   4.0% meanLoss 0.0014 (ub 0.0030) p=0.298 holm=1.000
+  DAT             0.7655 -0.0012 [-0.024,+0.021] loss   6.7% meanLoss 0.0154 (ub 0.0301) p=0.819 holm=1.000
+
+=== scifact|bm25|cvx | test 75 | a* cvx_a0.7
+  FIXED           0.7605 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.8084 +0.0479 [+0.018,+0.087] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.7605 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.7637 +0.0032 [-0.011,+0.020] loss   4.0% meanLoss 0.0046 (ub 0.0122) p=0.751 holm=1.000
+  A3              0.7416 -0.0189 [-0.057,+0.024] loss  16.0% meanLoss 0.0422 (ub 0.0654) p=0.391 holm=1.000
+  C(eps=0.02)     0.7698 +0.0093 [-0.017,+0.046] loss   6.7% meanLoss 0.0110 (ub 0.0215) p=0.663 holm=1.000
+  C(eps=0.05)     0.7416 -0.0189 [-0.057,+0.024] loss  16.0% meanLoss 0.0422 (ub 0.0654) p=0.391 holm=1.000
+  A3+L            0.7506 -0.0098 [-0.046,+0.031] loss  13.3% meanLoss 0.0309 (ub 0.0510) p=0.651 holm=1.000
+  C+L(eps=0.02)   0.7666 +0.0061 [-0.002,+0.020] loss   1.3% meanLoss 0.0006 (ub 0.0018) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.7506 -0.0098 [-0.046,+0.031] loss  13.3% meanLoss 0.0309 (ub 0.0510) p=0.651 holm=1.000
+  B1              0.7594 -0.0011 [-0.021,+0.020] loss   4.0% meanLoss 0.0122 (ub 0.0246) p=1.000 holm=1.000
+  B2              0.7497 -0.0108 [-0.035,+0.012] loss   9.3% meanLoss 0.0226 (ub 0.0395) p=0.420 holm=1.000
+  DAT             0.7427 -0.0178 [-0.055,+0.025] loss  10.7% meanLoss 0.0396 (ub 0.0628) p=0.419 holm=1.000
+
+=== scifact|fts|rrf | test 75 | a* rrf_w0.0
+  FIXED           0.7139 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7650 +0.0511 [+0.023,+0.082] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.7139 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.7278 +0.0139 [+0.000,+0.032] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=0.241 holm=1.000
+  A3              0.7247 +0.0108 [-0.005,+0.031] loss   2.7% meanLoss 0.0043 (ub 0.0096) p=0.288 holm=1.000
+  C(eps=0.02)     0.7273 +0.0134 [-0.001,+0.033] loss   1.3% meanLoss 0.0016 (ub 0.0049) p=0.191 holm=1.000
+  C(eps=0.05)     0.7247 +0.0108 [-0.005,+0.031] loss   2.7% meanLoss 0.0043 (ub 0.0096) p=0.288 holm=1.000
+  A0              0.6933 -0.0206 [-0.072,+0.028] loss  17.3% meanLoss 0.0661 (ub 0.0994) p=0.428 holm=1.000
+
+=== nfcorpus|bm25|rrf | test 80 | a* rrf_w0.75
+  FIXED           0.3306 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.3497 +0.0191 [+0.010,+0.029] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.3306 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.3333 +0.0027 [-0.003,+0.009] loss  12.5% meanLoss 0.0030 (ub 0.0054) p=0.395 holm=1.000
+  A3              0.3288 -0.0019 [-0.010,+0.007] loss  18.8% meanLoss 0.0082 (ub 0.0135) p=0.672 holm=1.000
+  C(eps=0.02)     0.3288 -0.0019 [-0.010,+0.007] loss  18.8% meanLoss 0.0082 (ub 0.0135) p=0.672 holm=1.000
+  C(eps=0.05)     0.3288 -0.0019 [-0.010,+0.007] loss  18.8% meanLoss 0.0082 (ub 0.0135) p=0.672 holm=1.000
+  A3+L            0.3284 -0.0022 [-0.011,+0.006] loss  15.0% meanLoss 0.0085 (ub 0.0141) p=0.632 holm=1.000
+  C+L(eps=0.02)   0.3284 -0.0022 [-0.011,+0.006] loss  15.0% meanLoss 0.0085 (ub 0.0141) p=0.632 holm=1.000
+  C+L(eps=0.05)   0.3284 -0.0022 [-0.011,+0.006] loss  15.0% meanLoss 0.0085 (ub 0.0141) p=0.632 holm=1.000
+  B1              0.3337 +0.0030 [-0.004,+0.011] loss  15.0% meanLoss 0.0053 (ub 0.0087) p=0.440 holm=1.000
+  B2              0.3307 +0.0000 [-0.009,+0.008] loss  12.5% meanLoss 0.0064 (ub 0.0132) p=0.995 holm=1.000
+  DAT             0.3311 +0.0004 [-0.011,+0.011] loss  21.2% meanLoss 0.0100 (ub 0.0174) p=0.946 holm=1.000
+
+=== nfcorpus|bm25|cvx | test 80 | a* cvx_a0.5
+  FIXED           0.3428 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.3797 +0.0369 [+0.024,+0.051] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.3428 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.3438 +0.0010 [-0.008,+0.010] loss  16.2% meanLoss 0.0086 (ub 0.0142) p=0.833 holm=1.000
+  A3              0.3452 +0.0024 [-0.009,+0.014] loss  15.0% meanLoss 0.0105 (ub 0.0170) p=0.697 holm=1.000
+  C(eps=0.02)     0.3451 +0.0023 [-0.008,+0.013] loss  13.8% meanLoss 0.0085 (ub 0.0141) p=0.668 holm=1.000
+  C(eps=0.05)     0.3452 +0.0024 [-0.009,+0.014] loss  15.0% meanLoss 0.0105 (ub 0.0170) p=0.697 holm=1.000
+  A3+L            0.3397 -0.0031 [-0.015,+0.009] loss  17.5% meanLoss 0.0141 (ub 0.0221) p=0.628 holm=1.000
+  C+L(eps=0.02)   0.3429 +0.0001 [-0.011,+0.011] loss  13.8% meanLoss 0.0100 (ub 0.0166) p=0.982 holm=1.000
+  C+L(eps=0.05)   0.3397 -0.0031 [-0.015,+0.009] loss  17.5% meanLoss 0.0141 (ub 0.0221) p=0.628 holm=1.000
+  B1              0.3350 -0.0078 [-0.021,+0.005] loss  16.2% meanLoss 0.0160 (ub 0.0255) p=0.251 holm=1.000
+  B2              0.3453 +0.0025 [-0.010,+0.014] loss   8.8% meanLoss 0.0100 (ub 0.0180) p=0.692 holm=1.000
+  DAT             0.3370 -0.0058 [-0.023,+0.011] loss  13.8% meanLoss 0.0204 (ub 0.0320) p=0.525 holm=1.000
+
+=== nfcorpus|fts|rrf | test 80 | a* rrf_w0.25
+  FIXED           0.3191 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.3376 +0.0185 [+0.010,+0.028] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.3191 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.3174 -0.0017 [-0.007,+0.003] loss  12.5% meanLoss 0.0050 (ub 0.0087) p=0.542 holm=1.000
+  A3              0.3160 -0.0031 [-0.013,+0.006] loss  12.5% meanLoss 0.0093 (ub 0.0162) p=0.528 holm=1.000
+  C(eps=0.02)     0.3160 -0.0031 [-0.013,+0.006] loss  12.5% meanLoss 0.0093 (ub 0.0162) p=0.528 holm=1.000
+  C(eps=0.05)     0.3160 -0.0031 [-0.013,+0.006] loss  12.5% meanLoss 0.0093 (ub 0.0162) p=0.528 holm=1.000
+  A0              0.3103 -0.0088 [-0.018,+0.001] loss  26.2% meanLoss 0.0153 (ub 0.0218) p=0.073 holm=0.440
+
+=== trec-covid|bm25|rrf | test 12 | a* rrf_w0.25
+  FIXED           0.7989 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.8368 +0.0379 [+0.015,+0.069] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.7992 +0.0003 [+0.000,+0.001] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.7986 -0.0003 [-0.015,+0.015] loss  25.0% meanLoss 0.0090 (ub 0.0171) p=0.967 holm=1.000
+  A3              0.7950 -0.0039 [-0.023,+0.017] loss  41.7% meanLoss 0.0143 (ub 0.0245) p=0.725 holm=1.000
+  C(eps=0.02)     0.7989 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C(eps=0.05)     0.7989 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A3+L            0.7928 -0.0061 [-0.024,+0.014] loss  41.7% meanLoss 0.0143 (ub 0.0245) p=0.598 holm=1.000
+  C+L(eps=0.02)   0.7989 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.7989 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  B1              0.8003 +0.0014 [-0.010,+0.014] loss   8.3% meanLoss 0.0037 (ub 0.0110) p=0.750 holm=1.000
+  B2              0.8143 +0.0154 [-0.015,+0.053] loss  33.3% meanLoss 0.0115 (ub 0.0203) p=0.473 holm=1.000
+  DAT             0.7815 -0.0174 [-0.057,+0.014] loss  41.7% meanLoss 0.0270 (ub 0.0570) p=0.488 holm=1.000
+
+=== trec-covid|bm25|cvx | test 12 | a* cvx_a0.8
+  FIXED           0.8294 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.8634 +0.0340 [+0.013,+0.060] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.8141 -0.0154 [-0.057,+0.014] loss  25.0% meanLoss 0.0230 (ub 0.0560) p=0.687 holm=1.000
+  A2              0.8166 -0.0129 [-0.062,+0.021] loss  25.0% meanLoss 0.0249 (ub 0.0638) p=0.840 holm=1.000
+  A3              0.8184 -0.0110 [-0.054,+0.020] loss  25.0% meanLoss 0.0230 (ub 0.0560) p=0.808 holm=1.000
+  C(eps=0.02)     0.8294 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C(eps=0.05)     0.8294 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A3+L            0.8120 -0.0174 [-0.059,+0.012] loss  33.3% meanLoss 0.0250 (ub 0.0584) p=0.568 holm=1.000
+  C+L(eps=0.02)   0.8294 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.8294 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  B1              0.8143 -0.0151 [-0.052,+0.019] loss  41.7% meanLoss 0.0301 (ub 0.0561) p=0.466 holm=1.000
+  B2              0.8259 -0.0036 [-0.020,+0.017] loss  58.3% meanLoss 0.0141 (ub 0.0210) p=0.757 holm=1.000
+  DAT             0.7803 -0.0492 [-0.158,+0.016] loss  33.3% meanLoss 0.0607 (ub 0.1598) p=0.570 holm=1.000
+
+=== trec-covid|fts|rrf | test 12 | a* rrf_w0.5
+  FIXED           0.7947 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.8034 +0.0087 [+0.001,+0.018] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.7899 -0.0048 [-0.016,+0.001] loss   8.3% meanLoss 0.0054 (ub 0.0163) p=1.000 holm=1.000
+  A2              0.7984 +0.0037 [-0.007,+0.015] loss  16.7% meanLoss 0.0038 (ub 0.0087) p=0.562 holm=1.000
+  A3              0.7960 +0.0013 [-0.004,+0.007] loss   8.3% meanLoss 0.0014 (ub 0.0042) p=0.743 holm=1.000
+  C(eps=0.02)     0.7947 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C(eps=0.05)     0.7947 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A0              0.7482 -0.0465 [-0.095,-0.007] loss  41.7% meanLoss 0.0486 (ub 0.0885) p=0.097 holm=0.585
+
+=== fiqa|bm25|rrf | test 162 | a* rrf_w0.0
+  FIXED           0.4335 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.4807 +0.0471 [+0.030,+0.066] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.4335 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.4321 -0.0014 [-0.017,+0.015] loss  14.2% meanLoss 0.0184 (ub 0.0281) p=0.856 holm=1.000
+  A3              0.4459 +0.0124 [-0.004,+0.029] loss   9.3% meanLoss 0.0120 (ub 0.0203) p=0.153 holm=0.766
+  C(eps=0.02)     0.4459 +0.0124 [-0.004,+0.029] loss   9.3% meanLoss 0.0120 (ub 0.0203) p=0.153 holm=0.766
+  C(eps=0.05)     0.4459 +0.0124 [-0.004,+0.029] loss   9.3% meanLoss 0.0120 (ub 0.0203) p=0.153 holm=0.766
+
+=== fiqa|bm25|cvx | test 162 | a* cvx_a0.8
+  FIXED           0.4411 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.4977 +0.0566 [+0.040,+0.074] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.4411 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.4404 -0.0007 [-0.012,+0.011] loss  10.5% meanLoss 0.0115 (ub 0.0177) p=0.897 holm=1.000
+  A3              0.4282 -0.0130 [-0.030,+0.002] loss  13.0% meanLoss 0.0232 (ub 0.0360) p=0.111 holm=0.553
+  C(eps=0.02)     0.4282 -0.0130 [-0.030,+0.002] loss  13.0% meanLoss 0.0232 (ub 0.0360) p=0.111 holm=0.553
+  C(eps=0.05)     0.4282 -0.0130 [-0.030,+0.002] loss  13.0% meanLoss 0.0232 (ub 0.0360) p=0.111 holm=0.553
+
+=== fiqa|fts|rrf | test 162 | a* rrf_w0.0
+  FIXED           0.4335 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.4525 +0.0189 [+0.008,+0.032] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.4335 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.4335 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A3              0.4312 -0.0023 [-0.011,+0.006] loss   5.6% meanLoss 0.0081 (ub 0.0141) p=0.620 holm=1.000
+  C(eps=0.02)     0.4312 -0.0023 [-0.011,+0.006] loss   5.6% meanLoss 0.0081 (ub 0.0141) p=0.620 holm=1.000
+  C(eps=0.05)     0.4312 -0.0023 [-0.011,+0.006] loss   5.6% meanLoss 0.0081 (ub 0.0141) p=0.620 holm=1.000
+  A0              0.3637 -0.0698 [-0.098,-0.043] loss  35.2% meanLoss 0.0869 (ub 0.1073) p=0.000 holm=0.001
+
+=== hemophilia-clin|bm25|rrf|a_raw | 100/100 q | a*_dev rrf_w0.5 | a*_insample rrf_w0.25 | primary
+  FIXED           0.6492 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7119 +0.0628 [+0.051,+0.075] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.6492 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.6080 -0.0412 [-0.062,-0.021] loss  60.0% meanLoss 0.0597 (ub 0.0742) p=0.000 holm=0.002
+  A3              0.6383 -0.0109 [-0.023,+0.001] loss  33.0% meanLoss 0.0236 (ub 0.0320) p=0.087 holm=0.875
+  C(eps=0.02)     0.6475 -0.0017 [-0.005,+0.000] loss   2.0% meanLoss 0.0017 (ub 0.0045) p=0.497 holm=1.000
+  C(eps=0.05)     0.6383 -0.0109 [-0.023,+0.001] loss  33.0% meanLoss 0.0236 (ub 0.0320) p=0.087 holm=0.875
+  A3+L            0.6398 -0.0093 [-0.024,+0.005] loss  34.0% meanLoss 0.0248 (ub 0.0341) p=0.203 holm=1.000
+  C+L(eps=0.02)   0.6488 -0.0003 [-0.001,+0.000] loss   1.0% meanLoss 0.0003 (ub 0.0010) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.6421 -0.0071 [-0.020,+0.006] loss  29.0% meanLoss 0.0204 (ub 0.0288) p=0.279 holm=1.000
+  B1              0.6563 +0.0071 [-0.001,+0.016] loss  16.0% meanLoss 0.0067 (ub 0.0103) p=0.097 holm=0.875
+  B2              0.6513 +0.0021 [-0.011,+0.015] loss  29.0% meanLoss 0.0187 (ub 0.0261) p=0.748 holm=1.000
+  DAT             0.6372 -0.0120 [-0.031,+0.006] loss  32.0% meanLoss 0.0353 (ub 0.0484) p=0.221 holm=1.000
+  FIXED_INSAMPLE  0.6590 +0.0098 [-0.003,+0.023] loss  36.0% meanLoss 0.0188 (ub 0.0251) 
+  -- secondary (recalibrated on 50, eval 50, a* rrf_w0.25)
+  FIXED           0.6419 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.6966 +0.0547 [+0.036,+0.075] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.6419 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.5875 -0.0544 [-0.092,-0.016] loss  60.0% meanLoss 0.0808 (ub 0.1046) p=0.008 holm=0.054
+  A3              0.6207 -0.0212 [-0.036,-0.008] loss  56.0% meanLoss 0.0265 (ub 0.0374) p=0.002 holm=0.018
+  C(eps=0.02)     0.6408 -0.0010 [-0.003,+0.000] loss   6.0% meanLoss 0.0010 (ub 0.0025) p=0.245 holm=1.000
+  C(eps=0.05)     0.6207 -0.0212 [-0.036,-0.008] loss  56.0% meanLoss 0.0265 (ub 0.0374) p=0.002 holm=0.018
+  A3+L            0.6228 -0.0190 [-0.034,-0.006] loss  56.0% meanLoss 0.0259 (ub 0.0364) p=0.005 holm=0.049
+  C+L(eps=0.02)   0.6408 -0.0010 [-0.003,+0.000] loss   6.0% meanLoss 0.0010 (ub 0.0025) p=0.245 holm=1.000
+  C+L(eps=0.05)   0.6228 -0.0190 [-0.034,-0.006] loss  56.0% meanLoss 0.0259 (ub 0.0364) p=0.005 holm=0.049
+  B1              0.6412 -0.0006 [-0.015,+0.014] loss  26.0% meanLoss 0.0144 (ub 0.0221) p=0.935 holm=1.000
+  B2              0.6401 -0.0017 [-0.027,+0.021] loss  40.0% meanLoss 0.0248 (ub 0.0403) p=0.890 holm=1.000
+  DAT             0.6180 -0.0239 [-0.049,-0.001] loss  48.0% meanLoss 0.0396 (ub 0.0572) p=0.063 holm=0.381
+
+=== hemophilia-clin|bm25|rrf|b_mapped | 100/100 q | a*_dev rrf_w0.5 | a*_insample rrf_w0.25 | primary
+  FIXED           0.7205 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7756 +0.0550 [+0.044,+0.067] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.7205 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.6844 -0.0362 [-0.056,-0.018] loss  58.0% meanLoss 0.0537 (ub 0.0670) p=0.000 holm=0.002
+  A3              0.7106 -0.0100 [-0.021,+0.001] loss  34.0% meanLoss 0.0209 (ub 0.0281) p=0.083 holm=0.828
+  C(eps=0.02)     0.7186 -0.0019 [-0.005,+0.000] loss   2.0% meanLoss 0.0019 (ub 0.0049) p=0.497 holm=1.000
+  C(eps=0.05)     0.7106 -0.0100 [-0.021,+0.001] loss  34.0% meanLoss 0.0209 (ub 0.0281) p=0.083 holm=0.828
+  A3+L            0.7107 -0.0099 [-0.022,+0.003] loss  34.0% meanLoss 0.0225 (ub 0.0305) p=0.128 holm=0.897
+  C+L(eps=0.02)   0.7201 -0.0004 [-0.001,+0.000] loss   1.0% meanLoss 0.0004 (ub 0.0013) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.7134 -0.0071 [-0.018,+0.004] loss  29.0% meanLoss 0.0179 (ub 0.0249) p=0.216 holm=1.000
+  B1              0.7276 +0.0070 [-0.001,+0.016] loss  16.0% meanLoss 0.0061 (ub 0.0095) p=0.100 holm=0.828
+  B2              0.7235 +0.0029 [-0.009,+0.015] loss  32.0% meanLoss 0.0172 (ub 0.0236) p=0.640 holm=1.000
+  DAT             0.7129 -0.0077 [-0.025,+0.008] loss  38.0% meanLoss 0.0289 (ub 0.0402) p=0.372 holm=1.000
+  FIXED_INSAMPLE  0.7311 +0.0106 [-0.001,+0.023] loss  36.0% meanLoss 0.0145 (ub 0.0194) 
+  -- secondary (recalibrated on 50, eval 50, a* rrf_w0.25)
+  FIXED           0.7139 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7645 +0.0505 [+0.034,+0.068] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.7139 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.6648 -0.0492 [-0.081,-0.017] loss  68.0% meanLoss 0.0716 (ub 0.0915) p=0.005 holm=0.042
+  A3              0.6943 -0.0197 [-0.035,-0.007] loss  50.0% meanLoss 0.0241 (ub 0.0356) p=0.003 holm=0.038
+  C(eps=0.02)     0.7128 -0.0011 [-0.003,+0.000] loss   4.0% meanLoss 0.0012 (ub 0.0032) p=0.492 holm=1.000
+  C(eps=0.05)     0.6943 -0.0197 [-0.035,-0.007] loss  50.0% meanLoss 0.0241 (ub 0.0356) p=0.003 holm=0.038
+  A3+L            0.6949 -0.0191 [-0.034,-0.006] loss  50.0% meanLoss 0.0247 (ub 0.0359) p=0.006 holm=0.046
+  C+L(eps=0.02)   0.7128 -0.0011 [-0.003,+0.000] loss   4.0% meanLoss 0.0012 (ub 0.0032) p=0.492 holm=1.000
+  C+L(eps=0.05)   0.6949 -0.0191 [-0.034,-0.006] loss  50.0% meanLoss 0.0247 (ub 0.0359) p=0.006 holm=0.046
+  B1              0.7112 -0.0028 [-0.015,+0.009] loss  22.0% meanLoss 0.0126 (ub 0.0201) p=0.673 holm=1.000
+  B2              0.7141 +0.0002 [-0.020,+0.019] loss  40.0% meanLoss 0.0197 (ub 0.0318) p=0.989 holm=1.000
+  DAT             0.6951 -0.0188 [-0.040,+0.001] loss  44.0% meanLoss 0.0314 (ub 0.0468) p=0.080 holm=0.482
+
+=== hemophilia-clin|bm25|rrf|c_grade3 | 81/100 q | a*_dev rrf_w0.5 | a*_insample rrf_w0.25 | primary
+  FIXED           0.5196 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.6314 +0.1118 [+0.086,+0.140] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.5196 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.5030 -0.0166 [-0.047,+0.015] loss  42.0% meanLoss 0.0585 (ub 0.0751) p=0.309 holm=1.000
+  A3              0.5004 -0.0192 [-0.041,+0.003] loss  27.2% meanLoss 0.0362 (ub 0.0508) p=0.088 holm=0.884
+  C(eps=0.02)     0.5150 -0.0046 [-0.012,+0.000] loss   2.5% meanLoss 0.0046 (ub 0.0101) p=0.494 holm=1.000
+  C(eps=0.05)     0.5004 -0.0192 [-0.041,+0.003] loss  27.2% meanLoss 0.0362 (ub 0.0508) p=0.088 holm=0.884
+  A3+L            0.5043 -0.0153 [-0.040,+0.009] loss  23.5% meanLoss 0.0363 (ub 0.0532) p=0.240 holm=1.000
+  C+L(eps=0.02)   0.5178 -0.0018 [-0.005,+0.000] loss   1.2% meanLoss 0.0018 (ub 0.0053) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.5103 -0.0093 [-0.030,+0.012] loss  21.0% meanLoss 0.0282 (ub 0.0414) p=0.405 holm=1.000
+  B1              0.5402 +0.0206 [+0.003,+0.042] loss  11.1% meanLoss 0.0087 (ub 0.0144) p=0.040 holm=0.440
+  B2              0.5320 +0.0124 [-0.011,+0.038] loss  24.7% meanLoss 0.0265 (ub 0.0381) p=0.330 holm=1.000
+  DAT             0.5106 -0.0090 [-0.037,+0.021] loss  28.4% meanLoss 0.0431 (ub 0.0596) p=0.550 holm=1.000
+  FIXED_INSAMPLE  0.5492 +0.0296 [+0.004,+0.057] loss  22.2% meanLoss 0.0220 (ub 0.0320) 
+  -- secondary (recalibrated on 40, eval 41, a* rrf_w0.25)
+  FIXED           0.5125 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.5999 +0.0874 [+0.051,+0.127] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.5125 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  A2              0.4614 -0.0510 [-0.114,+0.012] loss  48.8% meanLoss 0.1037 (ub 0.1406) p=0.123 holm=0.858
+  A3              0.4734 -0.0391 [-0.077,-0.008] loss  31.7% meanLoss 0.0446 (ub 0.0751) p=0.019 holm=0.188
+  C(eps=0.02)     0.5125 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C(eps=0.05)     0.4954 -0.0170 [-0.043,+0.003] loss   9.8% meanLoss 0.0211 (ub 0.0409) p=0.193 holm=1.000
+  A3+L            0.4732 -0.0392 [-0.079,-0.007] loss  31.7% meanLoss 0.0459 (ub 0.0776) p=0.027 holm=0.245
+  C+L(eps=0.02)   0.5125 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.4882 -0.0243 [-0.052,-0.003] loss  19.5% meanLoss 0.0269 (ub 0.0490) p=0.047 holm=0.380
+  B1              0.5085 -0.0039 [-0.032,+0.024] loss  17.1% meanLoss 0.0228 (ub 0.0406) p=0.789 holm=1.000
+  B2              0.4998 -0.0127 [-0.059,+0.031] loss  34.1% meanLoss 0.0442 (ub 0.0739) p=0.599 holm=1.000
+  DAT             0.4586 -0.0539 [-0.097,-0.016] loss  29.3% meanLoss 0.0646 (ub 0.0975) p=0.010 holm=0.113
+
+=== hemophilia-clin|bm25|cvx|a_raw | 100/100 q | a*_dev cvx_a0.8 | a*_insample cvx_a0.8 | primary
+  FIXED           0.6581 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7576 +0.0995 [+0.074,+0.128] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.6576 -0.0005 [-0.005,+0.004] loss   2.0% meanLoss 0.0021 (ub 0.0052) p=1.000 holm=1.000
+  A2              0.6464 -0.0117 [-0.034,+0.010] loss  46.0% meanLoss 0.0435 (ub 0.0574) p=0.303 holm=1.000
+  A3              0.6448 -0.0132 [-0.032,+0.005] loss  36.0% meanLoss 0.0327 (ub 0.0452) p=0.181 holm=1.000
+  C(eps=0.02)     0.6570 -0.0011 [-0.005,+0.003] loss   2.0% meanLoss 0.0023 (ub 0.0055) p=0.754 holm=1.000
+  C(eps=0.05)     0.6554 -0.0026 [-0.015,+0.010] loss  10.0% meanLoss 0.0126 (ub 0.0208) p=0.707 holm=1.000
+  A3+L            0.6502 -0.0079 [-0.021,+0.005] loss  40.0% meanLoss 0.0253 (ub 0.0341) p=0.268 holm=1.000
+  C+L(eps=0.02)   0.6581 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.6522 -0.0059 [-0.018,+0.005] loss  20.0% meanLoss 0.0157 (ub 0.0239) p=0.317 holm=1.000
+  B1              0.6223 -0.0358 [-0.061,-0.012] loss  60.0% meanLoss 0.0621 (ub 0.0786) p=0.004 holm=0.045
+  B2              0.6205 -0.0376 [-0.065,-0.011] loss  48.0% meanLoss 0.0674 (ub 0.0852) p=0.006 holm=0.058
+  DAT             0.6168 -0.0413 [-0.074,-0.011] loss  46.0% meanLoss 0.0734 (ub 0.0961) p=0.010 holm=0.090
+  FIXED_INSAMPLE  0.6581 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  -- secondary (recalibrated on 50, eval 50, a* cvx_a0.9)
+  FIXED           0.6407 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7408 +0.1001 [+0.062,+0.147] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.6264 -0.0143 [-0.045,+0.002] loss   2.0% meanLoss 0.0149 (ub 0.0446) p=1.000 holm=1.000
+  A2              0.6244 -0.0163 [-0.038,+0.005] loss  40.0% meanLoss 0.0303 (ub 0.0448) p=0.145 holm=1.000
+  A3              0.6329 -0.0078 [-0.039,+0.022] loss  44.0% meanLoss 0.0381 (ub 0.0574) p=0.635 holm=1.000
+  C(eps=0.02)     0.6323 -0.0084 [-0.025,+0.000] loss   2.0% meanLoss 0.0084 (ub 0.0251) p=1.000 holm=1.000
+  C(eps=0.05)     0.6370 -0.0037 [-0.034,+0.024] loss  34.0% meanLoss 0.0300 (ub 0.0492) p=0.811 holm=1.000
+  A3+L            0.6291 -0.0116 [-0.043,+0.019] loss  46.0% meanLoss 0.0424 (ub 0.0612) p=0.473 holm=1.000
+  C+L(eps=0.02)   0.6381 -0.0026 [-0.008,+0.000] loss   2.0% meanLoss 0.0026 (ub 0.0079) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.6395 -0.0011 [-0.031,+0.028] loss  28.0% meanLoss 0.0309 (ub 0.0493) p=0.942 holm=1.000
+  B1              0.6093 -0.0314 [-0.070,+0.007] loss  62.0% meanLoss 0.0692 (ub 0.0920) p=0.122 holm=1.000
+  B2              0.6023 -0.0383 [-0.080,+0.002] loss  60.0% meanLoss 0.0698 (ub 0.0973) p=0.076 holm=0.758
+  DAT             0.5928 -0.0478 [-0.096,-0.003] loss  56.0% meanLoss 0.0752 (ub 0.1099) p=0.054 holm=0.591
+
+=== hemophilia-clin|bm25|cvx|b_mapped | 100/100 q | a*_dev cvx_a0.8 | a*_insample cvx_a0.9 | primary
+  FIXED           0.7303 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.8163 +0.0860 [+0.065,+0.109] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.7280 -0.0023 [-0.007,+0.001] loss   3.0% meanLoss 0.0027 (ub 0.0064) p=0.382 holm=1.000
+  A2              0.7172 -0.0131 [-0.031,+0.004] loss  46.0% meanLoss 0.0357 (ub 0.0476) p=0.150 holm=1.000
+  A3              0.7190 -0.0113 [-0.028,+0.005] loss  37.0% meanLoss 0.0275 (ub 0.0383) p=0.201 holm=1.000
+  C(eps=0.02)     0.7296 -0.0007 [-0.005,+0.003] loss   2.0% meanLoss 0.0018 (ub 0.0048) p=0.754 holm=1.000
+  C(eps=0.05)     0.7284 -0.0019 [-0.013,+0.010] loss  10.0% meanLoss 0.0100 (ub 0.0165) p=0.752 holm=1.000
+  A3+L            0.7230 -0.0073 [-0.019,+0.004] loss  39.0% meanLoss 0.0216 (ub 0.0294) p=0.233 holm=1.000
+  C+L(eps=0.02)   0.7303 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.7241 -0.0062 [-0.017,+0.003] loss  20.0% meanLoss 0.0135 (ub 0.0208) p=0.238 holm=1.000
+  B1              0.7007 -0.0296 [-0.051,-0.009] loss  55.0% meanLoss 0.0536 (ub 0.0680) p=0.008 holm=0.080
+  B2              0.6988 -0.0315 [-0.055,-0.009] loss  51.0% meanLoss 0.0578 (ub 0.0730) p=0.007 holm=0.080
+  DAT             0.6968 -0.0335 [-0.062,-0.007] loss  46.0% meanLoss 0.0621 (ub 0.0813) p=0.015 holm=0.134
+  FIXED_INSAMPLE  0.7303 +0.0000 [-0.010,+0.011] loss  46.0% meanLoss 0.0202 (ub 0.0255) 
+  -- secondary (recalibrated on 50, eval 50, a* cvx_a0.8)
+  FIXED           0.7127 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7983 +0.0856 [+0.053,+0.125] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.7091 -0.0037 [-0.011,+0.000] loss   2.0% meanLoss 0.0037 (ub 0.0111) p=1.000 holm=1.000
+  A2              0.6974 -0.0154 [-0.036,+0.004] loss  44.0% meanLoss 0.0326 (ub 0.0458) p=0.143 holm=1.000
+  A3              0.7135 +0.0008 [-0.020,+0.024] loss  32.0% meanLoss 0.0204 (ub 0.0314) p=0.947 holm=1.000
+  C(eps=0.02)     0.7127 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C(eps=0.05)     0.7136 +0.0009 [-0.018,+0.022] loss  24.0% meanLoss 0.0158 (ub 0.0260) p=0.932 holm=1.000
+  A3+L            0.7084 -0.0043 [-0.024,+0.016] loss  40.0% meanLoss 0.0239 (ub 0.0364) p=0.688 holm=1.000
+  C+L(eps=0.02)   0.7127 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.7084 -0.0043 [-0.024,+0.016] loss  40.0% meanLoss 0.0239 (ub 0.0364) p=0.688 holm=1.000
+  B1              0.6842 -0.0286 [-0.055,-0.002] loss  56.0% meanLoss 0.0532 (ub 0.0698) p=0.046 holm=0.415
+  B2              0.6773 -0.0354 [-0.067,-0.005] loss  56.0% meanLoss 0.0597 (ub 0.0803) p=0.031 holm=0.307
+  DAT             0.6669 -0.0459 [-0.085,-0.008] loss  46.0% meanLoss 0.0679 (ub 0.0951) p=0.022 holm=0.241
+
+=== hemophilia-clin|bm25|cvx|c_grade3 | 81/100 q | a*_dev cvx_a0.8 | a*_insample cvx_a0.8 | primary
+  FIXED           0.5584 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7143 +0.1559 [+0.112,+0.204] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.5585 +0.0002 [-0.003,+0.005] loss   3.7% meanLoss 0.0017 (ub 0.0035) p=1.000 holm=1.000
+  A2              0.5297 -0.0286 [-0.070,+0.008] loss  42.0% meanLoss 0.0632 (ub 0.0911) p=0.158 holm=1.000
+  A3              0.5336 -0.0248 [-0.054,+0.004] loss  29.6% meanLoss 0.0464 (ub 0.0651) p=0.097 holm=1.000
+  C(eps=0.02)     0.5571 -0.0012 [-0.009,+0.006] loss   2.5% meanLoss 0.0033 (ub 0.0090) p=0.752 holm=1.000
+  C(eps=0.05)     0.5501 -0.0083 [-0.027,+0.010] loss   8.6% meanLoss 0.0170 (ub 0.0300) p=0.402 holm=1.000
+  A3+L            0.5468 -0.0116 [-0.034,+0.010] loss  30.9% meanLoss 0.0330 (ub 0.0471) p=0.321 holm=1.000
+  C+L(eps=0.02)   0.5584 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.5454 -0.0129 [-0.033,+0.005] loss  18.5% meanLoss 0.0232 (ub 0.0368) p=0.194 holm=1.000
+  B1              0.5337 -0.0247 [-0.070,+0.020] loss  46.9% meanLoss 0.0797 (ub 0.1076) p=0.288 holm=1.000
+  B2              0.5263 -0.0320 [-0.077,+0.012] loss  46.9% meanLoss 0.0849 (ub 0.1127) p=0.166 holm=1.000
+  DAT             0.5215 -0.0368 [-0.085,+0.010] loss  38.3% meanLoss 0.0866 (ub 0.1179) p=0.140 holm=1.000
+  FIXED_INSAMPLE  0.5584 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  -- secondary (recalibrated on 40, eval 41, a* cvx_a0.8)
+  FIXED           0.5066 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.6693 +0.1627 [+0.100,+0.235] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.5050 -0.0016 [-0.005,+0.000] loss   2.4% meanLoss 0.0016 (ub 0.0048) p=1.000 holm=1.000
+  A2              0.4843 -0.0224 [-0.063,+0.019] loss  41.5% meanLoss 0.0514 (ub 0.0769) p=0.296 holm=1.000
+  A3              0.5220 +0.0153 [-0.026,+0.056] loss  17.1% meanLoss 0.0246 (ub 0.0474) p=0.478 holm=1.000
+  C(eps=0.02)     0.5066 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C(eps=0.05)     0.5096 +0.0030 [-0.029,+0.033] loss   9.8% meanLoss 0.0150 (ub 0.0365) p=0.821 holm=1.000
+  A3+L            0.5112 +0.0046 [-0.034,+0.041] loss  26.8% meanLoss 0.0288 (ub 0.0517) p=0.824 holm=1.000
+  C+L(eps=0.02)   0.5066 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C+L(eps=0.05)   0.5014 -0.0052 [-0.036,+0.017] loss   7.3% meanLoss 0.0156 (ub 0.0392) p=0.812 holm=1.000
+  B1              0.4936 -0.0130 [-0.067,+0.041] loss  43.9% meanLoss 0.0710 (ub 0.0999) p=0.635 holm=1.000
+  B2              0.4756 -0.0310 [-0.094,+0.029] loss  43.9% meanLoss 0.0835 (ub 0.1231) p=0.341 holm=1.000
+  DAT             0.4577 -0.0489 [-0.113,+0.011] loss  29.3% meanLoss 0.0855 (ub 0.1307) p=0.133 holm=1.000
+
+=== hemophilia-clin|fts|rrf|a_raw | 100/100 q | a*_dev rrf_w0.5 | a*_insample rrf_w0.0 | primary
+  FIXED           0.5952 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.6734 +0.0782 [+0.063,+0.094] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.5593 -0.0359 [-0.052,-0.022] loss  28.0% meanLoss 0.0365 (ub 0.0494) p=0.000 holm=0.001
+  A2              0.6359 +0.0408 [+0.021,+0.061] loss  28.0% meanLoss 0.0203 (ub 0.0282) p=0.000 holm=0.001
+  A3              0.6086 +0.0134 [-0.006,+0.034] loss  39.0% meanLoss 0.0284 (ub 0.0373) p=0.187 holm=0.748
+  C(eps=0.02)     0.5991 +0.0039 [-0.007,+0.015] loss   8.0% meanLoss 0.0080 (ub 0.0142) p=0.496 holm=0.993
+  C(eps=0.05)     0.6086 +0.0134 [-0.006,+0.034] loss  39.0% meanLoss 0.0284 (ub 0.0373) p=0.187 holm=0.748
+  FIXED_INSAMPLE  0.6425 +0.0474 [+0.027,+0.069] loss  30.0% meanLoss 0.0210 (ub 0.0286) 
+  A0              0.5932 -0.0020 [-0.006,+0.000] loss   1.0% meanLoss 0.0020 (ub 0.0059) p=1.000 holm=1.000
+  -- secondary (recalibrated on 50, eval 50, a* rrf_w0.0)
+  FIXED           0.6214 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.6535 +0.0321 [+0.018,+0.048] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.6120 -0.0094 [-0.024,+0.000] loss   6.0% meanLoss 0.0098 (ub 0.0215) p=0.246 holm=0.491
+  A2              0.6107 -0.0107 [-0.026,+0.001] loss  20.0% meanLoss 0.0136 (ub 0.0258) p=0.119 holm=0.357
+  A3              0.5731 -0.0483 [-0.076,-0.024] loss  44.0% meanLoss 0.0536 (ub 0.0752) p=0.000 holm=0.003
+  C(eps=0.02)     0.6214 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C(eps=0.05)     0.5731 -0.0483 [-0.076,-0.024] loss  44.0% meanLoss 0.0536 (ub 0.0752) p=0.000 holm=0.003
+  A0              0.5790 -0.0424 [-0.070,-0.015] loss  68.0% meanLoss 0.0621 (ub 0.0800) p=0.004 holm=0.015
+
+=== hemophilia-clin|fts|rrf|b_mapped | 100/100 q | a*_dev rrf_w0.5 | a*_insample rrf_w0.0 | primary
+  FIXED           0.6562 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7411 +0.0849 [+0.070,+0.101] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.6171 -0.0391 [-0.056,-0.025] loss  28.0% meanLoss 0.0398 (ub 0.0535) p=0.000 holm=0.001
+  A2              0.7088 +0.0525 [+0.033,+0.073] loss  26.0% meanLoss 0.0148 (ub 0.0220) p=0.000 holm=0.001
+  A3              0.6755 +0.0192 [-0.000,+0.040] loss  37.0% meanLoss 0.0247 (ub 0.0337) p=0.059 holm=0.235
+  C(eps=0.02)     0.6627 +0.0065 [-0.003,+0.017] loss   7.0% meanLoss 0.0056 (ub 0.0104) p=0.211 holm=0.423
+  C(eps=0.05)     0.6755 +0.0192 [-0.000,+0.040] loss  37.0% meanLoss 0.0247 (ub 0.0337) p=0.059 holm=0.235
+  FIXED_INSAMPLE  0.7174 +0.0611 [+0.042,+0.081] loss  29.0% meanLoss 0.0130 (ub 0.0187) 
+  A0              0.6536 -0.0026 [-0.008,+0.000] loss   1.0% meanLoss 0.0026 (ub 0.0079) p=1.000 holm=1.000
+  -- secondary (recalibrated on 50, eval 50, a* rrf_w0.0)
+  FIXED           0.6964 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.7210 +0.0246 [+0.014,+0.037] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.6861 -0.0103 [-0.025,+0.000] loss   6.0% meanLoss 0.0106 (ub 0.0226) p=0.246 holm=0.491
+  A2              0.6862 -0.0102 [-0.024,+0.001] loss  16.0% meanLoss 0.0134 (ub 0.0245) p=0.125 holm=0.376
+  A3              0.6473 -0.0491 [-0.076,-0.025] loss  44.0% meanLoss 0.0521 (ub 0.0734) p=0.000 holm=0.001
+  C(eps=0.02)     0.6964 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C(eps=0.05)     0.6473 -0.0491 [-0.076,-0.025] loss  44.0% meanLoss 0.0521 (ub 0.0734) p=0.000 holm=0.001
+  A0              0.6451 -0.0513 [-0.077,-0.026] loss  64.0% meanLoss 0.0635 (ub 0.0820) p=0.000 holm=0.001
+
+=== hemophilia-clin|fts|rrf|c_grade3 | 81/100 q | a*_dev rrf_w0.5 | a*_insample rrf_w0.0 | primary
+  FIXED           0.4847 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.5838 +0.0991 [+0.077,+0.123] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.4570 -0.0277 [-0.046,-0.011] loss  23.5% meanLoss 0.0321 (ub 0.0467) p=0.003 holm=0.016
+  A2              0.5166 +0.0319 [-0.005,+0.067] loss  21.0% meanLoss 0.0387 (ub 0.0599) p=0.092 holm=0.460
+  A3              0.4804 -0.0042 [-0.040,+0.030] loss  30.9% meanLoss 0.0504 (ub 0.0726) p=0.818 holm=1.000
+  C(eps=0.02)     0.4823 -0.0024 [-0.031,+0.022] loss   6.2% meanLoss 0.0214 (ub 0.0410) p=0.875 holm=1.000
+  C(eps=0.05)     0.4804 -0.0042 [-0.040,+0.030] loss  30.9% meanLoss 0.0504 (ub 0.0726) p=0.818 holm=1.000
+  FIXED_INSAMPLE  0.5232 +0.0385 [+0.000,+0.074] loss  23.5% meanLoss 0.0394 (ub 0.0605) 
+  A0              0.4828 -0.0018 [-0.006,+0.000] loss   1.2% meanLoss 0.0018 (ub 0.0055) p=1.000 holm=1.000
+  -- secondary (recalibrated on 40, eval 41, a* rrf_w0.0)
+  FIXED           0.4773 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  ORACLE          0.5496 +0.0723 [+0.032,+0.120] loss   0.0% meanLoss 0.0000 (ub 0.0000) 
+  A1              0.4706 -0.0067 [-0.022,+0.002] loss   4.9% meanLoss 0.0076 (ub 0.0223) p=0.752 holm=1.000
+  A2              0.4717 -0.0056 [-0.027,+0.012] loss   9.8% meanLoss 0.0135 (ub 0.0286) p=0.637 holm=1.000
+  A3              0.4395 -0.0378 [-0.077,-0.000] loss  34.1% meanLoss 0.0549 (ub 0.0819) p=0.062 holm=0.374
+  C(eps=0.02)     0.4773 +0.0000 [+0.000,+0.000] loss   0.0% meanLoss 0.0000 (ub 0.0000) p=1.000 holm=1.000
+  C(eps=0.05)     0.4395 -0.0378 [-0.077,-0.000] loss  34.1% meanLoss 0.0549 (ub 0.0819) p=0.062 holm=0.374
+  A0              0.4578 -0.0195 [-0.071,+0.038] loss  48.8% meanLoss 0.0657 (ub 0.0913) p=0.503 holm=1.000
